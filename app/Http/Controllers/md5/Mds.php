@@ -24,6 +24,11 @@ class Mds extends Controller
         $json=json_encode($str);
         $enc_str=openssl_encrypt($json,$api,$key,$argc,$iv);
         $post_data=base64_encode($enc_str);
+        $public_key = openssl_pkey_get_private(file_get_contents("./key/openssl.key"));
+        openssl_sign($post_data,$signature,$public_key,OPENSSL_ALGO_SHA256);
+        openssl_free_key($public_key);
+        $sign=base64_encode($signature);
+        //var_dump($sign);die;
          //初始化
      $curl = curl_init();
     //设置抓取的url
@@ -34,7 +39,7 @@ class Mds extends Controller
       curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
      //设置post方式提交
      curl_setopt($curl, CURLOPT_POST, 1);
-     curl_setopt($curl, CURLOPT_POSTFIELDS, ['data'=>$post_data]);
+     curl_setopt($curl, CURLOPT_POSTFIELDS, ['data'=>$post_data,'sign'=>$sign]);
      //执行命令
      $data = curl_exec($curl);
     print_r($data);die;
