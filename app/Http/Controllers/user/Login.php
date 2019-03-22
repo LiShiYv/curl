@@ -35,8 +35,9 @@ class Login extends Controller
      curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
      //执行命令
      $r = curl_exec($curl);
-     $re=json_decode($data,true);
-print_r($re);
+     $re=json_decode($r,true);
+     print_r($re);die;
+return $re;
     }
 
 
