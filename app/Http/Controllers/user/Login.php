@@ -13,7 +13,6 @@ use GuzzleHttp\Client;
 class Login extends Controller
 {
     public function index(){
-        $url ="http://lsy.52self.cn/login";
    $u_name=$_POST['u_name'];
    $u_pwd=$_POST['u_pwd'];
         $data=[
@@ -23,6 +22,7 @@ class Login extends Controller
         //var_dump($data);die;
         //var_dump($sign);die;
          //初始化
+         $url ="http://lsy.52self.cn/login";
      $curl = curl_init();
     //设置抓取的url
       curl_setopt($curl, CURLOPT_URL, $url);
@@ -32,10 +32,11 @@ class Login extends Controller
       curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
      //设置post方式提交
      curl_setopt($curl, CURLOPT_POST, 1);
-     curl_setopt($curl, CURLOPT_POSTFIELDS, ['data'=>$data]);
+     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
      //执行命令
-     $data = curl_exec($curl);
-
+     $r = curl_exec($curl);
+     $re=json_decode($data,true);
+print_r($re);
     }
 
 
