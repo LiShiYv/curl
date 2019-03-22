@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-   // echo date('Y-m-d H:i:s' );
-    //echo '<pre>';print_r($_COOKIE);echo '</pre>';
-
-   // echo "<h1><font color='aqua'>未凉</font></h1>";
-    return view('welcome');
-});
+//Route::get('/', function () {
+//   // echo date('Y-m-d H:i:s' );
+//    //echo '<pre>';print_r($_COOKIE);echo '</pre>';
+//
+//   // echo "<h1><font color='aqua'>未凉</font></h1>";
+//    return view('welcome');
+//});
 Route::get('user','user\User@test');
 
 Route::get('user/add','user\User@add');
@@ -143,3 +143,6 @@ Route::get('/api','Api\indexController@test1');
 //加密测试
 Route::get('/mds','md5\Mds@mds');
 Route::get('/rec','rec\Rec@counNum');
+
+Route::get('/','user\User@index')->middleware('check.cookies');
+Route::post('/login','user\Login@index');

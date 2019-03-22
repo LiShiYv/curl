@@ -3,22 +3,23 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Redis;
 
 class CheckCookies
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
-    public function handle($request, Closure $next)
-    {
-        if(!$request->session()->get('u_token')){
-            header('Refresh:2;url=/userlogin');
-            echo '请先登录';
-            exit;
+
+    public function handle($request,Closure $next){
+        if(isset($_COOKIE['id'])&& isset($_COOKIE['token'])){
+            $key ='str:u:web:'.$_COOKIE['id'];
+            //print_r($key);die;
+            $token =Redis::get($key);
+            if($_COOKIE['token']==$token){
+                $request->attributes->add(['is_login'=>1]);
+            }else{
+                $request->attributes->add(['is_login'=>0]);
+            }
+        }else{
+            $request->attributes->add(['is_login'=>0]);
         }
         return $next($request);
     }
