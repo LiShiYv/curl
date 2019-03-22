@@ -20,7 +20,7 @@ class Login extends Controller
             'u_name'=>$u_name,
             'u_pwd'=>$u_pwd
         ];
-        var_dump($data);die;
+        //var_dump($data);die;
         //var_dump($sign);die;
          //初始化
      $curl = curl_init();
@@ -32,7 +32,7 @@ class Login extends Controller
       curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
      //设置post方式提交
      curl_setopt($curl, CURLOPT_POST, 1);
-     curl_setopt($curl, CURLOPT_POSTFIELDS, ['data'=>$post_data,'sign'=>$sign]);
+     curl_setopt($curl, CURLOPT_POSTFIELDS, ['data'=>$data]);
      //执行命令
      $data = curl_exec($curl);
 
