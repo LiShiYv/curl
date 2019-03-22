@@ -36,7 +36,7 @@ class Login extends Controller
      //执行命令
      $r = curl_exec($curl);
      $re=json_decode($r,true);
-     print_r($re);die;
+     //print_r($re);die;
 return $re;
     }
 
