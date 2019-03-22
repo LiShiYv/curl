@@ -5,14 +5,14 @@
  * Date: 2019/3/18
  * Time: 10:04
  */
-namespace App\Http\Controllers\md5;
+namespace App\Http\Controllers\user;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
-class Mds extends Controller
+class Login extends Controller
 {
-    public function mds(){
+    public function index(){
         $url ="http://lsy.52self.cn/login";
    $u_name=$_POST['u_name'];
    $u_pwd=$_POST['u_pwd'];
