@@ -145,4 +145,4 @@ Route::get('/mds','md5\Mds@mds');
 Route::get('/rec','rec\Rec@counNum');
 
 Route::get('/','user\User@index')->middleware('check.cookies');
-Route::post('/login','user\Login@index');
+Route::post('/userlogin','user\Login@index');
