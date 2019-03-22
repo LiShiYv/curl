@@ -67,7 +67,7 @@ return $re;
      //执行命令
      $r2 = curl_exec($curl);
      $re2=json_decode($r2,true);
-     print_r($re2);die;
+     //print_r($re2);die;
 return $re2;
  }
 
