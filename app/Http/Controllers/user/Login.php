@@ -44,7 +44,7 @@ return $re;
          $u_pwd=$_POST['u_pwd'];
          $u_pwd1=$_POST['u_pwd1'];
          $u_email=$_POST['u_email'];
-        $data=[
+        $data1=[
             'u_name'=>$u_name,
             'u_pwd'=>$u_pwd,
             'u_pwd1'=>$u_pwd1,
@@ -63,13 +63,13 @@ return $re;
       curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
      //设置post方式提交
      curl_setopt($curl, CURLOPT_POST, 1);
-     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+     curl_setopt($curl, CURLOPT_POSTFIELDS, $data1);
      //执行命令
      $r2 = curl_exec($curl);
      $re2=json_decode($r2,true);
-     //print_r($re);die;
+     print_r($re2);die;
 return $re2;
-    }
+ }
 
 
 }
