@@ -39,6 +39,37 @@ class Login extends Controller
      //print_r($re);die;
 return $re;
     }
+    public function index2(){
+        $u_name=$_POST['u_name'];
+         $u_pwd=$_POST['u_pwd'];
+         $u_pwd1=$_POST['u_pwd1'];
+         $u_email=$_POST['u_email'];
+        $data=[
+            'u_name'=>$u_name,
+            'u_pwd'=>$u_pwd,
+            'u_pwd1'=>$u_pwd1,
+            'u_email'=>$u_email
+        ];
+        //var_dump($data);die;
+        //var_dump($sign);die;
+         //初始化
+         $url ="http://lsy.52self.cn/reg";
+     $curl = curl_init();
+    //设置抓取的url
+      curl_setopt($curl, CURLOPT_URL, $url);
+     //设置头文件的信息作为数据流输出
+      curl_setopt($curl, CURLOPT_HEADER, 0);
+      //设置获取的信息以文件流的形式返回，而不是直接输出。
+      curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+     //设置post方式提交
+     curl_setopt($curl, CURLOPT_POST, 1);
+     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+     //执行命令
+     $r2 = curl_exec($curl);
+     $re2=json_decode($r2,true);
+     //print_r($re);die;
+return $re2;
+    }
 
 
 }
