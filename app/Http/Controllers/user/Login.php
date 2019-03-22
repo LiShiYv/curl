@@ -39,7 +39,7 @@ class Login extends Controller
      //print_r($re);die;
 return $re;
     }
-    public function index2(){
+    public function reg(){
         $u_name=$_POST['u_name'];
          $u_pwd=$_POST['u_pwd'];
          $u_pwd1=$_POST['u_pwd1'];
