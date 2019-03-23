@@ -71,7 +71,7 @@
         <a href="{{url('/show') }}">个人中心</a>
             <a href="{{url('/quit')}}">退出</a>
 @else
-        <a href="http://passport.weiliang.com/login?redirect={{$current_url}}">登录</a>
+        <a href="http://xxx.52xiuge.com/login?redirect={{$current_url}}">登录</a>
         <a href="{{ route('register') }}">Register</a>
 
 @endif
