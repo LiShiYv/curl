@@ -72,7 +72,7 @@ return $re;
 return $re2;
  }
 
-public function uCenter(Request $request){
+public function center(Request $request){
     $token=$request->input('token');
     $id=$request->input('id');
     $data=[
