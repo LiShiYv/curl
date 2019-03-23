@@ -147,3 +147,4 @@ Route::get('/rec','rec\Rec@counNum');
 Route::get('/','user\User@index')->middleware('check.cookies');
 Route::post('/userlogin2','user\Login@index');
 Route::post('/userreg2','user\Login@reg');
+Route::post('/uCenter','user\Login@center');

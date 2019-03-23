@@ -71,5 +71,38 @@ return $re;
 return $re2;
  }
 
+public function uCenter(){
+    $token=$_POST['token'];
+    $id=$_POST['id'];
+    $data=[
+        'id'=>$id,
+        'token'=>$token
+    ];
+    if(empty($data)){
+        $response=[
+            'errno'=>4001,
+            'msg'=>'请先登录'
+        ];
+    }else{
+        $redis_key_web_token='str:u:token:'.$id;
+        Redis::hGet($redis_key_web_token,'app');
+        if($token==$redis_key_web_token){
+           $response=[
+            'errno'=>0,
+            'msg'=>'ok'
 
+        ];  
+        }else{
+            $response=[
+                'errno'=>4001,
+                'msg'=>'请先登录'
+            ];
+
+        }
+       
+    }
+    
+    return $response;
+    
+}
 }
