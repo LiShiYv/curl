@@ -75,11 +75,7 @@ return $re2;
 public function center(Request $request){
     $token=$request->input('token');
     $id=$request->input('id');
-    $data=[
-        'id'=>$id,
-        'token'=>$token
-    ];
-    if(empty($data)){
+    if(empty($token) || empty($id)){
         $response=[
             'errno'=>4001,
             'msg'=>'请先登录'
