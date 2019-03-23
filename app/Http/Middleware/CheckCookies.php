@@ -13,6 +13,7 @@ class CheckCookies
             $key ='str:u:token:'.$_COOKIE['id'];
             //print_r($key);die;
             $token =Redis::hget($key,'web');
+            print_r($token);die;
             if($_COOKIE['token']==$token){
                 $request->attributes->add(['is_login'=>1]);
             }else{
