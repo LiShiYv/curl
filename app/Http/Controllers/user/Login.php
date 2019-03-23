@@ -10,6 +10,7 @@ namespace App\Http\Controllers\user;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Redis;
 class Login extends Controller
 {
     public function index(){
@@ -71,9 +72,9 @@ return $re;
 return $re2;
  }
 
-public function uCenter(){
-    $token=$_POST['token'];
-    $id=$_POST['id'];
+public function uCenter(Request $request){
+    $token=$request->input('token');
+    $id=$request->input('id');
     $data=[
         'id'=>$id,
         'token'=>$token
