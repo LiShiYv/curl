@@ -79,16 +79,9 @@ public function center(Request $request){
             'token'=>$token,
             'id'=>$id
         ];
-        return $data;
-//        print_r($id);
-//        print_r($token);die;
+       // return $data;
 
-        //print_r($_POST);die;
-    //$token=$request->input('token');
-   // $id=$request->input('id');
-  //  print_r($token);
-   // print_r($id);die;
-    if(empty($token) || empty($id)){
+    if(empty($data)){
         $response=[
             'errno'=>4002,
             'msg'=>'请先登录'
