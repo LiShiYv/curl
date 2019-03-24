@@ -75,20 +75,20 @@ return $re2;
 public function center(Request $request){
         $id=$_POST['id'];
         $token=$_POST['token'];
-        $data=[
-            'token'=>$token,
-            'id'=>$id
-        ];
+//        $data=[
+//            'token'=>$token,
+//            'id'=>$id
+//        ];
         //print_r($data);die;
        // return $data;
 
-    if(empty($data)){
+    if(empty($id)||empty($token) ){
         $response=[
             'errno'=>4002,
             'msg'=>'请先登录'
         ];
     }else{
-        $redis_key_web_token='str:u:token:'.$data['id'];
+        $redis_key_web_token='str:u:token:'.$id;
 //print_r($redis_key_web_token);die;
         $tokenapp=Redis::hGet($redis_key_web_token,'app');
        // print_r($tokenapp);die;
