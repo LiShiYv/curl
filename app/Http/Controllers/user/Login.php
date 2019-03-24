@@ -91,6 +91,7 @@ public function center(Request $request){
         $redis_key_web_token='str:u:token:'.$id;
 //print_r($redis_key_web_token);die;
         $tokenapp=Redis::hGet($redis_key_web_token,'app');
+        print_r($tokenapp);die;
       //  var_dump($redis_key_web_token);die;
         if($token==$tokenapp){
            $response=[
