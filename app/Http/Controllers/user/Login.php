@@ -75,8 +75,13 @@ return $re2;
 public function center(Request $request){
         $id=$_POST['id'];
         $token=$_POST['token'];
-        print_r($id);
-        print_r($token);die;
+        $data=[
+            'token'=>$token,
+            'id'=>$id
+        ];
+        return $data;
+//        print_r($id);
+//        print_r($token);die;
 
         //print_r($_POST);die;
     //$token=$request->input('token');
