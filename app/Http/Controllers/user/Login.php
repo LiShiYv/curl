@@ -75,7 +75,7 @@ return $re2;
 public function center(Request $request){
     $token=$request->input('token');
     $id=$request->input('id');
-    print_r($token);die;
+    print_r($token);
     print_r($id);die;
     if(empty($token) || empty($id)){
         $response=[
