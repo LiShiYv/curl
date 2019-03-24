@@ -88,10 +88,10 @@ public function center(Request $request){
             'msg'=>'请先登录'
         ];
     }else{
-        $redis_key_web_token='str:u:token:'.$id;
+        $redis_key_web_token='str:u:token:'.$data['id'];
 //print_r($redis_key_web_token);die;
         $tokenapp=Redis::hGet($redis_key_web_token,'app');
-        print_r($tokenapp);die;
+       // print_r($tokenapp);die;
       //  var_dump($redis_key_web_token);die;
         if($token==$tokenapp){
            $response=[
