@@ -79,6 +79,7 @@ public function center(Request $request){
             'token'=>$token,
             'id'=>$id
         ];
+        print_r($data);die;
        // return $data;
 
     if(empty($data)){
