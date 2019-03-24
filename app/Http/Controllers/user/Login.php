@@ -89,7 +89,7 @@ public function center(Request $request){
         ];
     }else{
         $redis_key_web_token='str:u:token:'.$id;
-print_r($redis_key_web_token);die;
+//print_r($redis_key_web_token);die;
         Redis::hGet($redis_key_web_token,'app');
       //  var_dump($redis_key_web_token);die;
         if($token==$redis_key_web_token){
