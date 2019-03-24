@@ -73,11 +73,14 @@ return $re2;
  }
 
 public function center(Request $request){
-        print_r($_POST);die;
-    $token=$request->input('token');
-    $id=$request->input('id');
-    print_r($token);
-    print_r($id);die;
+        $id=$_POST['id'];
+        $token=$_POST['token'];
+
+        //print_r($_POST);die;
+    //$token=$request->input('token');
+   // $id=$request->input('id');
+  //  print_r($token);
+   // print_r($id);die;
     if(empty($token) || empty($id)){
         $response=[
             'errno'=>4002,
