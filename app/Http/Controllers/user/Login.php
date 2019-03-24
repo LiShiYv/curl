@@ -77,7 +77,7 @@ public function center(Request $request){
     $id=$request->input('id');
     if(empty($token) || empty($id)){
         $response=[
-            'errno'=>4001,
+            'errno'=>4002,
             'msg'=>'请先登录'
         ];
     }else{
