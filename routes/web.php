@@ -148,3 +148,5 @@ Route::get('/','user\User@index')->middleware('check.cookies');
 Route::post('/userlogin2','user\Login@index');
 Route::post('/userreg2','user\Login@reg');
 Route::post('/uCenter','user\Login@center');
+Route::get('/certen74','user\User@center');
+Route::get('/quit','user\User@quit');
